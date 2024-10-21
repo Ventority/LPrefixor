@@ -1,0 +1,4 @@
+name: LPrefixor
+version: '${project.version}'
+main: de.ventority.lprefixor.LPrefixor
+api-version: '1.21'
