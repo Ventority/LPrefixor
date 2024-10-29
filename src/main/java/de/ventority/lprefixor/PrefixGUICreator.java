@@ -1,12 +1,12 @@
 package de.ventority.lprefixor;
 
-import de.ventority.lprefixor.PrefixOptions.colorPermissionsWithItemStack;
-import de.ventority.lprefixor.PrefixOptions.fadePermissionsWithItemStack;
+import de.ventority.lprefixor.TempColorSelection.colorPermissionsWithItemStack;
+import de.ventority.lprefixor.TempColorSelection.fadePermissionsWithItemStack;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
-import org.bukkit.material.
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -45,15 +45,13 @@ public class PrefixGUICreator {
             if (sumOfColorsInGUI >= personalColors.length)
                 break;
             colorPermissionsWithItemStack color = personalColors[sumOfColorsInGUI];
-            if (u.getCachedData().getPermissionData().checkPermission(color.permission).asBoolean()) {
-                gui.setItem(spalte + 1 + zeile * 9, color.item);
+            gui.setItem(spalte + 1 + zeile * 9, color.item);
                 colorsInGUI++;
                 sumOfColorsInGUI++;
                 spalte++;
                 if (spalte % 7 == 0) {
                     zeile++;
                     spalte = 0;
-                }
             }
         }
 
@@ -63,7 +61,6 @@ public class PrefixGUICreator {
             if (sumOfColorsInGUI - personalColors.length >= personalFades.length)
                 break;
             fadePermissionsWithItemStack fade = personalFades[sumOfColorsInGUI - personalColors.length];
-            if (u.getCachedData().getPermissionData().checkPermission(fade.permission).asBoolean()) {
                 gui.setItem(spalte + 1 + zeile * 9, fade.item);
                 colorsInGUI++;
                 sumOfColorsInGUI++;
@@ -72,7 +69,7 @@ public class PrefixGUICreator {
                     zeile++;
                     spalte = 0;
                 }
-            }
+
         }
     }
 
@@ -125,7 +122,6 @@ public class PrefixGUICreator {
         int counter = 0;
         for (int i = 0; i < colorPermissionsWithItemStack.values().length; i++) {
             colorPermissionsWithItemStack color = colorPermissionsWithItemStack.values()[i];
-            if (u.getCachedData().getPermissionData().checkPermission(color.permission).asBoolean())
                 counter++;
         }
         return counter;
@@ -134,7 +130,6 @@ public class PrefixGUICreator {
     private int personalFadeAmount() {
         int counter = 0;
         for (fadePermissionsWithItemStack fade : fadePermissionsWithItemStack.values())
-            if (u.getCachedData().getPermissionData().checkPermission(fade.permission).asBoolean())
                 counter++;
         return counter;
     }
@@ -143,10 +138,9 @@ public class PrefixGUICreator {
         colorPermissionsWithItemStack[] arr = new colorPermissionsWithItemStack[personalColorAmount()];
         int pos = 0;
         for (colorPermissionsWithItemStack color : colorPermissionsWithItemStack.values()) {
-            if (u.getCachedData().getPermissionData().checkPermission(color.permission).asBoolean()) {
                 arr[pos] = color;
                 pos++;
-            }
+
         }
         return arr;
     }
@@ -155,10 +149,9 @@ public class PrefixGUICreator {
         fadePermissionsWithItemStack[] arr = new fadePermissionsWithItemStack[personalFadeAmount()];
         int pos = 0;
         for (fadePermissionsWithItemStack fade : fadePermissionsWithItemStack.values()) {
-            if (u.getCachedData().getPermissionData().checkPermission(fade.permission).asBoolean()) {
                 arr[pos] = fade;
                 pos++;
-            }
+
         }
         return arr;
     }

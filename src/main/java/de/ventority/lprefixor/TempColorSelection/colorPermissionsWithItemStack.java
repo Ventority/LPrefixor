@@ -1,4 +1,4 @@
-package de.ventority.lprefixor.PrefixOptions;
+package de.ventority.lprefixor.TempColorSelection;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;

@@ -1,14 +1,13 @@
-package de.ventority.lprefixor;
+package de.ventority.lprefixor.PrefixOperations;
 
+import de.ventority.lprefixor.ExecuteSetPrefix;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
 import net.luckperms.api.node.NodeType;
 
 public class PrefixOperations {
     public static void clearPrefix(User u) {
-        u.data().clear(NodeType.PREFIX::matches);
-        LuckPermsProvider.get().getUserManager().saveUser(u);
-
+        ExecuteSetPrefix.clearPrefix(u);
     }
 
     private static String formatPrefix(String prefix) {

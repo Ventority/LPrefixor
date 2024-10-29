@@ -1,10 +1,10 @@
-package de.ventority.lprefixor;
+package de.ventority.lprefixor.PrefixOperations;
 
 import net.md_5.bungee.api.ChatColor;
 
 import java.awt.*;
 
-public class ColorOperations {
+public class ColorModifiers {
     public static String fadeBetweenColors(Color startColor, Color endColor, String prefix) {
         StringBuilder sb = new StringBuilder();
         String extra = prefix.charAt(0) == '&' ? "&l" : "";

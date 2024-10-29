@@ -2,3 +2,7 @@ name: LPrefixor
 version: '${project.version}'
 main: de.ventority.lprefixor.LPrefixor
 api-version: '1.21'
+depend: [LuckPerms]
+commands:
+  prefix:
+    permission: lprefixor.prefix

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LPrefixor.iml" filepath="$PROJECT_DIR$/LPrefixor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/LPrefixor.iml" filepath="$PROJECT_DIR$/.idea/LPrefixor.iml" />
     </modules>
   </component>
 </project>
