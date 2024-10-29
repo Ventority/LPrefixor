@@ -1,0 +1,8 @@
+name: LPrefixor
+version: '1.0-SNAPSHOT'
+main: de.ventority.lprefixor.LPrefixor
+api-version: '1.21'
+depend: [LuckPerms]
+commands:
+  prefix:
+    permission: lprefixor.prefix

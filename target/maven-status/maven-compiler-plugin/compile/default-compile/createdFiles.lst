@@ -1,0 +1,12 @@
+de/ventority/lprefixor/TempColorSelection/fadePermissionsWithItemStack.class
+de/ventority/lprefixor/PrefixOperations/PrefixOperations.class
+de/ventority/lprefixor/ServerSettingsHandler.class
+de/ventority/lprefixor/TempColorSelection/colorPermissionsWithItemStack.class
+de/ventority/lprefixor/Storage/ColorNotCorrectException.class
+de/ventority/lprefixor/LPrefixor.class
+de/ventority/lprefixor/Storage/ItemColorCombo.class
+de/ventority/lprefixor/PrefixSuffixInvEvent.class
+de/ventority/lprefixor/PrefixOperations/ColorModifiers.class
+de/ventority/lprefixor/Storage/storageFileHandler.class
+de/ventority/lprefixor/PrefixGUICreator.class
+de/ventority/lprefixor/ExecuteSetPrefix.class
