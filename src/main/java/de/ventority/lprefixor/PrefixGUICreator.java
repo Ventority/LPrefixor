@@ -1,79 +1,69 @@
 package de.ventority.lprefixor;
 
-import de.ventority.lprefixor.TempColorSelection.colorPermissionsWithItemStack;
-import de.ventority.lprefixor.TempColorSelection.fadePermissionsWithItemStack;
+import de.ventority.lprefixor.Storage.ColorProps;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class PrefixGUICreator {
     private final Player p;
-    private final colorPermissionsWithItemStack[] personalColors;
-    private final fadePermissionsWithItemStack[] personalFades;
     private final User u;
+
+    private final Inventory gui;
+    private String lastColor = null;
+
+    private int colorCounter = 0;
+    private int column = 1;
+    private int row = 1;
+
     public PrefixGUICreator(Player p) {
         this.p = p;
         u = LuckPermsProvider.get().getPlayerAdapter(Player.class).getUser(p);
-        personalFades = generateFadeArray();
-        personalColors = generateColorArray();
+        gui = Bukkit.createInventory(p, 54, LPrefixor.serverHandler.getServerName()
+                + ChatColor.RESET + ChatColor.DARK_GRAY + " Prefix");
     }
-    public void colorSelector(int site) {
-        String suffix = personalFadeAmount()+personalColorAmount() >= 28 ? (ChatColor.GRAY + " | S: " + (site + 1)) : "";
-        String titleText = LPrefixor.serverHandler.getServerName() + ChatColor.RESET + ChatColor.DARK_GRAY + " Prefix" + suffix;
-        Inventory gui = Bukkit.createInventory(p, 54, titleText);
-        fillInventoryWithPerms(gui, site);
-        addSiteButtons(gui, site);
-        addReset(gui);
+    public void colorSelector() {
+        fillBorder();
+        addReset();
+        addSiteButtons();
+        fillInventoryWithColors();
         p.openInventory(gui);
     }
 
-    private void fillInventoryWithPerms(Inventory gui, int site) {
-        fillBorder(gui);
-        int spalte = 0;
-        int zeile = 1;
-        int colorsInGUI = 0;
-        int sumOfColorsInGUI = 28 * site;
-        for (int j = 0; j < 28; j++) {
-            if (colorsInGUI >= 28)
-                break;
-            if (sumOfColorsInGUI >= personalColors.length)
-                break;
-            colorPermissionsWithItemStack color = personalColors[sumOfColorsInGUI];
-            gui.setItem(spalte + 1 + zeile * 9, color.item);
-                colorsInGUI++;
-                sumOfColorsInGUI++;
-                spalte++;
-                if (spalte % 7 == 0) {
-                    zeile++;
-                    spalte = 0;
-            }
-        }
-
-        for (int j = 0; j < 28; j++) {
-            if (colorsInGUI >= 28)
-                break;
-            if (sumOfColorsInGUI - personalColors.length >= personalFades.length)
-                break;
-            fadePermissionsWithItemStack fade = personalFades[sumOfColorsInGUI - personalColors.length];
-                gui.setItem(spalte + 1 + zeile * 9, fade.item);
-                colorsInGUI++;
-                sumOfColorsInGUI++;
-                spalte++;
-                if (spalte % 7 == 0) {
-                    zeile++;
-                    spalte = 0;
-                }
-
+    private void fillInventoryWithColors() {
+        TreeMap<String, ColorProps> sortedMap = new TreeMap<>(LPrefixor.serverHandler.getFileHandler().getColors());
+        sortedMap = lastColor == null ? sortedMap : (TreeMap<String, ColorProps>) sortedMap.tailMap(lastColor);
+        Iterator<Map.Entry<String, ColorProps>> iterator = sortedMap.entrySet().iterator();
+        while(iterator.hasNext()) {
+            Map.Entry<String, ColorProps> entry = iterator.next();
+            addToInv(entry);
         }
     }
 
-    private void fillBorder(Inventory gui) {
+    private void addToInv(Map.Entry<String, ColorProps> entry) {
+        gui.addItem(entry.getValue().getItem());
+        row = (row == 4 ? 1 : row + 1);
+        column = (column == 7 ? 1 : column + 1);
+    }
+
+    private boolean endIsReached() {
+        return colorCounter == 27;
+    }
+
+    private void fillBorder() {
         ItemStack stack = new ItemStack(Material.BLACK_STAINED_GLASS_PANE, 1);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(" ");
@@ -93,66 +83,37 @@ public class PrefixGUICreator {
         }
     }
 
-    private void addReset(Inventory gui) {
+    private void addReset() {
         ItemStack reset = new ItemStack(Material.BARRIER, 1);
         ItemMeta meta = reset.getItemMeta();
         meta.setDisplayName(ChatColor.DARK_RED + "Zurücksetzen");
+        addNBTData(meta, "lprefixor.type", "button");
+        addNBTData(meta, "lprefixor.action", "reset");
         reset.setItemMeta(meta);
         gui.setItem(49, reset);
     }
 
-    private void addSiteButtons(Inventory gui, int site) {
-        if (personalColorAmount()+personalFadeAmount() >= 28 + 28*site) {
-            ItemStack next = new ItemStack(Material.LIME_DYE, 1);
-            ItemMeta metaNext = next.getItemMeta();
-            metaNext.setDisplayName(ChatColor.GREEN + "Nächste Seite");
-            next.setItemMeta(metaNext);
-            gui.setItem(50, next);
-        }
-        if (site != 0) {
-            ItemStack previous = new ItemStack(Material.LIME_DYE, 1);
-            ItemMeta metaPrevious = previous.getItemMeta();
-            metaPrevious.setDisplayName(ChatColor.GREEN + "Vorherige Seite");
-            previous.setItemMeta(metaPrevious);
-            gui.setItem(48, previous);
-        }
+    private void addSiteButtons() {
+        ItemStack next = new ItemStack(Material.LIME_DYE, 1);
+        ItemMeta meta = next.getItemMeta();
+        meta.setDisplayName(ChatColor.GREEN + "Next");
+        addNBTData(meta, "lprefixor.type", "button");
+        addNBTData(meta, "lprefixor.action", "next");
+        next.setItemMeta(meta);
+        gui.setItem(50, next);
+
+        ItemStack prev = new ItemStack(Material.RED_DYE, 1);
+        meta = next.getItemMeta();
+        meta.setDisplayName(ChatColor.RED + "Previous");
+        addNBTData(meta, "lprefixor.type", "button");
+        addNBTData(meta, "lprefixor.action", "previous");
+        prev.setItemMeta(meta);
+        gui.setItem(48, prev);
     }
 
-    private int personalColorAmount() {
-        int counter = 0;
-        for (int i = 0; i < colorPermissionsWithItemStack.values().length; i++) {
-            colorPermissionsWithItemStack color = colorPermissionsWithItemStack.values()[i];
-                counter++;
-        }
-        return counter;
-    }
-
-    private int personalFadeAmount() {
-        int counter = 0;
-        for (fadePermissionsWithItemStack fade : fadePermissionsWithItemStack.values())
-                counter++;
-        return counter;
-    }
-
-    private colorPermissionsWithItemStack[] generateColorArray() {
-        colorPermissionsWithItemStack[] arr = new colorPermissionsWithItemStack[personalColorAmount()];
-        int pos = 0;
-        for (colorPermissionsWithItemStack color : colorPermissionsWithItemStack.values()) {
-                arr[pos] = color;
-                pos++;
-
-        }
-        return arr;
-    }
-
-    private fadePermissionsWithItemStack[] generateFadeArray() {
-        fadePermissionsWithItemStack[] arr = new fadePermissionsWithItemStack[personalFadeAmount()];
-        int pos = 0;
-        for (fadePermissionsWithItemStack fade : fadePermissionsWithItemStack.values()) {
-                arr[pos] = fade;
-                pos++;
-
-        }
-        return arr;
+    private void addNBTData(ItemMeta meta, String name, String value) {
+        NamespacedKey key = new NamespacedKey(LPrefixor.serverHandler.getPlugin(), name);
+        PersistentDataContainer data = meta.getPersistentDataContainer();
+        data.set(key, PersistentDataType.STRING, value);
     }
 }

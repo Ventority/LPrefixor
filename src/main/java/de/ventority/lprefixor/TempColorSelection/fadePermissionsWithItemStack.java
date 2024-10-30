@@ -1,6 +1,8 @@
 package de.ventority.lprefixor.TempColorSelection;
 
 import de.ventority.lprefixor.ExecuteSetPrefix;
+import de.ventority.lprefixor.PrefixOperations.ColorModifiers;
+import de.ventority.lprefixor.PrefixOperations.PrefixOperations;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -64,7 +66,7 @@ public enum fadePermissionsWithItemStack {
         this.item = item;
         ItemMeta meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ExecuteSetPrefix.removeEnding(ExecuteSetPrefix.fadeBetweenColors(c1.getColor(), c2.getColor(), name)));
+        meta.setDisplayName(PrefixOperations.removeEnding(ColorModifiers.fadeBetweenColors(c1.getColor(), c2.getColor(), name)));
         item.setItemMeta(meta);
         this.c1 = c1;
         this.c2 = c2;

@@ -1,95 +1,78 @@
 package de.ventority.lprefixor;
 
-import net.luckperms.api.LuckPermsProvider;
-import net.luckperms.api.model.user.User;
-import net.luckperms.api.node.NodeType;
-import net.luckperms.api.node.types.PrefixNode;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ExecuteSetPrefix implements CommandExecutor {
+public class ExecuteSetPrefix implements CommandExecutor, TabCompleter {
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if (commandSender instanceof Player) {
-            Player sender = (Player) commandSender;
-            PrefixGUICreator invCreator = new PrefixGUICreator(sender);
-            invCreator.colorSelector(0);
+    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
+        if (args.length == 0) {
+            if (commandSender instanceof Player) {
+                Player sender = (Player) commandSender;
+                PrefixGUICreator invCreator = new PrefixGUICreator(sender);
+                invCreator.colorSelector();
+            } else {
+                System.out.println("This command can only be run by a player!");
+            }
+        } else if (args[0].equals("add")) {
+            try {
+                if (args.length == 4) {
+                    LPrefixor.serverHandler.getFileHandler().addColor(args[1], args[2],
+                            Material.getMaterial(args[3].toUpperCase()));
+                    commandSender.sendMessage(ChatColor.of(Color.decode(args[2])).toString() + "Hallo");
+                } else {
+                    commandSender.sendMessage("Please use /prefix add <name> <HEXColor> <item>" + '\n' +
+                            "Example: /prefix add MyColor #FFFFFF Diamond");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else if (args[0].equals("remove")) {
+            try {
+                if (args.length == 2) {
+                    LPrefixor.serverHandler.getFileHandler().removeColor(args[1]);
+                    commandSender.sendMessage("Color removed!");
+                } else {
+                    commandSender.sendMessage("Please use /prefix remove <name>");
+                }
+            } catch (Exception e) {
+                commandSender.sendMessage("There was an error removing the color: " + args[1] +
+                        ". Try to post an issue on GitHub if you think this is a bug.");
+            }
         }
+
         return true;
     }
 
-    public static void setColor(ChatColor c1, ChatColor c2, Player p) {
-        User u = LuckPermsProvider.get().getPlayerAdapter(Player.class).getUser(p);
-        clearPrefix(u);
-        String prefix = u.getCachedData().getMetaData().getPrefix();
-        if(prefix == null)
-            return;
-        prefix = formatPrefix(prefix);
-        String newPrefix = fadeBetweenColors(c1.getColor(), c2.getColor(), prefix);
-        PrefixNode node = PrefixNode.builder(newPrefix, 150).build();
-        u.data().add(node);
-        LuckPermsProvider.get().getUserManager().saveUser(u);
-    }
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        ArrayList<String> completions = new ArrayList<>();
 
-    public static void clearPrefix(User u) {
-        u.data().clear(NodeType.PREFIX::matches);
-        LuckPermsProvider.get().getUserManager().saveUser(u);
-
-    }
-
-    private static String formatPrefix(String prefix) {
-        prefix = removeColors(prefix);
-        prefix = removeEnding(prefix);
-        return prefix;
-    }
-
-    public static String removeEnding(String prefix) {
-        int i = 0;
-        StringBuilder sb = new StringBuilder();
-        while(prefix.charAt(i) != ' ') {
-            sb.append(prefix.charAt(i));
-            i++;
+        // Tab-Vervollständigung für das erste Argument (add oder remove)
+        if (args.length == 1) {
+            if ("add".startsWith(args[0].toLowerCase())) completions.add("add");
+            if ("remove".startsWith(args[0].toLowerCase())) completions.add("remove");
         }
-        return sb.toString();
-    }
 
-    private static String removeColors(String prefix) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < prefix.length(); i++) {
-            if (prefix.charAt(i) == '&') {
-                if (prefix.charAt(i+1) == 'l')
-                    sb.append("&l");
-                i++;
-            } else
-                sb.append(prefix.charAt(i));
+        // Tab-Vervollständigung für das dritte Argument (Materialnamen)
+        else if (args.length == 4 && args[0].equalsIgnoreCase("add")) {
+            for (Material material : Material.values()) {
+                String materialName = material.toString().toLowerCase();
+                if (materialName.startsWith(args[3].toLowerCase())) {
+                    completions.add(materialName);
+                }
+            }
         }
-        return sb.toString();
-    }
-
-
-
-    public static String fadeBetweenColors(Color startColor, Color endColor, String prefix) {
-        StringBuilder sb = new StringBuilder();
-        String extra = prefix.charAt(0) == '&' ? "&l" : "";
-        prefix = prefix.charAt(0) == '&' ? prefix.substring(2) : prefix;
-        for (int i = 0; i < prefix.length(); i++) {
-            char ch = prefix.charAt(i);
-            float ratio = (float) i / (prefix.length()-1);
-            int red = (int) (startColor.getRed() * (1 - ratio) + endColor.getRed() * ratio);
-            int green = (int) (startColor.getGreen() * (1 - ratio) + endColor.getGreen() * ratio);
-            int blue = (int) (startColor.getBlue() * (1 - ratio) + endColor.getBlue() * ratio);
-            Color intermediateColor = new Color(red, green, blue);
-            String temp = ChatColor.of(intermediateColor).toString();
-            sb.append(temp);
-            sb.append(extra);
-            sb.append(ch);
-        }
-        sb.append(ChatColor.RESET).append(ChatColor.GRAY).append(" | ");
-        return sb.toString();
+        return completions;
     }
 }

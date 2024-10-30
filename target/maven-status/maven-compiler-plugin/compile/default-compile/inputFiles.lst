@@ -1,9 +1,9 @@
 /Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor/src/main/java/de/ventority/lprefixor/PrefixOperations/PrefixOperations.java
-/Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor/src/main/java/de/ventority/lprefixor/Storage/ItemColorCombo.java
+/Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor/src/main/java/de/ventority/lprefixor/Storage/StorageFileHandler.java
 /Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor/src/main/java/de/ventority/lprefixor/ExecuteSetPrefix.java
 /Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor/src/main/java/de/ventority/lprefixor/PrefixGUICreator.java
-/Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor/src/main/java/de/ventority/lprefixor/Storage/storageFileHandler.java
 /Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor/src/main/java/de/ventority/lprefixor/ServerSettingsHandler.java
+/Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor/src/main/java/de/ventority/lprefixor/Storage/ColorProps.java
 /Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor/src/main/java/de/ventority/lprefixor/PrefixSuffixInvEvent.java
 /Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor/src/main/java/de/ventority/lprefixor/PrefixOperations/ColorModifiers.java
 /Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor/src/main/java/de/ventority/lprefixor/TempColorSelection/fadePermissionsWithItemStack.java

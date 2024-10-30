@@ -4,38 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05dbfb94-0725-456f-9c65-7b1672d5b6ca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/LPrefixor.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixSuffixInvEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/Storage/ColorNotCorrectException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/Storage/ItemColorCombo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_10_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_18_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_32_1_2_jre.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_2_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_luckperms_api_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_20_R0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_33_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_joml_joml_1_10_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_21_R0_1_SNAPSHOT.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LPrefixor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LPrefixor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/ColorOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixOperations/ColorModifiers.java" afterDir="false" />
+    <list default="true" id="05dbfb94-0725-456f-9c65-7b1672d5b6ca" name="Changes" comment="Initial #02">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/ExecuteSetPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/ExecuteSetPrefix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/LPrefixor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/LPrefixor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixGUICreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixGUICreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixOperations/PrefixOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixOptions/colorPermissionsWithItemStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/TempColorSelection/colorPermissionsWithItemStack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixOptions/fadePermissionsWithItemStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/TempColorSelection/fadePermissionsWithItemStack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/Storage/storageFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/Storage/storageFileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixOperations/PrefixOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixOperations/PrefixOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixSuffixInvEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixSuffixInvEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/ServerSettingsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/ServerSettingsHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/Storage/ItemColorCombo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/Storage/ColorProps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/Storage/storageFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/Storage/StorageFileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/TempColorSelection/fadePermissionsWithItemStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/TempColorSelection/fadePermissionsWithItemStack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/ExecuteSetPrefix.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/ExecuteSetPrefix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/LPrefixor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/LPrefixor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/PrefixGUICreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/PrefixGUICreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/PrefixOperations/PrefixOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/PrefixOperations/PrefixOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/PrefixSuffixInvEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/PrefixSuffixInvEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/ServerSettingsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/ServerSettingsHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/Storage/ItemColorCombo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/Storage/storageFileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/Storage/storageFileHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/TempColorSelection/fadePermissionsWithItemStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/TempColorSelection/fadePermissionsWithItemStack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,23 +46,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.LPrefixor [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.LPrefixor [org.apache.maven.plugins:maven-jar-plugin:3.4.1:jar].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.LPrefixor [compile].executor": "Run",
+    "Maven.LPrefixor [org.apache.maven.plugins:maven-jar-plugin:3.4.1:jar].executor": "Run",
+    "Maven.LPrefixor [validate].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jakobhansen/Documents/GitHub/LPrefixor/LPrefixor",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="de.ventority.lprefixor" />
@@ -96,10 +89,44 @@
       <workItem from="1729783624446" duration="2923000" />
       <workItem from="1729836586402" duration="1283000" />
       <workItem from="1729887855499" duration="1188000" />
+      <workItem from="1730215828348" duration="10259000" />
+      <workItem from="1730278704344" duration="17848000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial #02">
+      <option name="closed" value="true" />
+      <created>1730215862796</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730215862796</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Initial #02">
+      <option name="closed" value="true" />
+      <created>1730215878599</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730215878599</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial #02" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial #02" />
   </component>
 </project>

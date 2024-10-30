@@ -1,17 +1,21 @@
 package de.ventority.lprefixor;
 
 
-import de.ventority.lprefixor.TempColorSelection.colorPermissionsWithItemStack;
-import de.ventority.lprefixor.TempColorSelection.fadePermissionsWithItemStack;
-import net.luckperms.api.LuckPermsProvider;
+import de.ventority.lprefixor.PrefixOperations.PrefixOperations;
+import net.luckperms.api.LuckPerms;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 
-import java.util.Objects;
+import java.awt.*;
 
 public class PrefixSuffixInvEvent implements Listener {
     @EventHandler
@@ -22,40 +26,49 @@ public class PrefixSuffixInvEvent implements Listener {
                 return;
             click.setCancelled(true);
             curPlayer.updateInventory();
-            if((!(click.getCurrentItem().getData().getItemType() == Material.LEGACY_STAINED_GLASS_PANE || click.getCurrentItem().getData().getItemType() == Material.BLACK_STAINED_GLASS_PANE)) && click.getClickedInventory() != curPlayer.getInventory()) {
-                for (colorPermissionsWithItemStack color : colorPermissionsWithItemStack.values()) {
-                    if (Objects.requireNonNull(click.getCurrentItem().getItemMeta()).getDisplayName().equals(color.item.getItemMeta().getDisplayName())) {
-                        ExecuteSetPrefix.setColor(color.color, color.color, curPlayer);
-                        curPlayer.closeInventory();
-                        curPlayer.updateInventory();
-                    }
-                }
-                for (fadePermissionsWithItemStack fade : fadePermissionsWithItemStack.values()) {
-                    if (Objects.requireNonNull(click.getCurrentItem().getItemMeta()).getDisplayName().equals(fade.item.getItemMeta().getDisplayName())) {
-                        ExecuteSetPrefix.setColor(fade.c1, fade.c2, curPlayer);
-                        curPlayer.closeInventory();
-                        curPlayer.updateInventory();
-                    }
-                }
-                if (click.getCurrentItem().getType() == Material.BARRIER) {
-                    ExecuteSetPrefix.clearPrefix(LuckPermsProvider.get().getPlayerAdapter(Player.class).getUser(curPlayer));
-                    curPlayer.sendMessage("Der Prefix wurde zurückgesetzt!");
-                    curPlayer.closeInventory();
-                    curPlayer.updateInventory();
-                }
+            if((!(click.getCurrentItem().getData().getItemType() == Material.BLACK_STAINED_GLASS
+                    || click.getCurrentItem().getData().getItemType() == Material.BLACK_STAINED_GLASS_PANE))
+                    && click.getClickedInventory() != curPlayer.getInventory()) {
+                ItemStack clickedItem = click.getCurrentItem();
+                LuckPerms lp = LPrefixor.serverHandler.getLuckPerms();
 
-                if (Objects.requireNonNull(click.getCurrentItem().getItemMeta()).getDisplayName().contains("Nächste")) {
-                    PrefixGUICreator creator = new PrefixGUICreator(curPlayer);
-                    String title = click.getView().getTitle();
-                    creator.colorSelector(title.charAt(title.indexOf("| S:") + 5) - '0');
-                }
+                if (hasNBTData(clickedItem, "lprefixor.type", "button")) {
+                    //Checking for Reset button
+                    if (hasNBTData(clickedItem, "lprefixor.action", "reset")) {
+                        PrefixOperations.clearPrefix(lp.getUserManager().getUser(curPlayer.getUniqueId()));
+                    }
 
-                if (Objects.requireNonNull(click.getCurrentItem().getItemMeta()).getDisplayName().contains("Vorherige")) {
-                    PrefixGUICreator creator = new PrefixGUICreator(curPlayer);
-                    String title = click.getView().getTitle();
-                    creator.colorSelector(title.charAt(title.indexOf("| S:") + 5) - '0'-2);
+                    //Checking for Next button
+                    if (hasNBTData(clickedItem, "lprefixor.action", "next")) {
+                        return;
+                    }
+
+                    //Checking for Previous Button
+                    if (hasNBTData(clickedItem, "lprefixor.action", "previous")) {
+                        return;
+                    }
+
+
+                }
+                if (hasNBTData(clickedItem, "lprefixor.type", "color")) {
+                    NamespacedKey key = new NamespacedKey(LPrefixor.serverHandler.getPlugin(), "color");
+                    PersistentDataContainer container = clickedItem.getItemMeta().getPersistentDataContainer();
+                    ChatColor color = ChatColor.of(Color.decode(container.get(key, PersistentDataType.STRING)));
+                    PrefixOperations.setColor(color, color, curPlayer);
                 }
             }
+            click.setCancelled(true);
+            curPlayer.closeInventory();
+            curPlayer.updateInventory();
         }
+    }
+
+    private boolean hasNBTData(ItemStack item, String name, String expectedValue) {
+        if (item == null || !item.hasItemMeta()) return false;
+
+        ItemMeta meta = item.getItemMeta();
+        NamespacedKey key = new NamespacedKey(LPrefixor.serverHandler.getPlugin(), name);
+        PersistentDataContainer data = meta.getPersistentDataContainer();
+        return expectedValue.equals(data.get(key, PersistentDataType.STRING));
     }
 }
