@@ -4,30 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05dbfb94-0725-456f-9c65-7b1672d5b6ca" name="Changes" comment="Initial #02">
+    <list default="true" id="05dbfb94-0725-456f-9c65-7b1672d5b6ca" name="Changes" comment="Initial #01">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/ExecuteSetPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/ExecuteSetPrefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/LPrefixor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/LPrefixor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixGUICreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixGUICreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixOperations/PrefixOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixOperations/PrefixOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixSuffixInvEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/PrefixSuffixInvEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/ServerSettingsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/ServerSettingsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/Storage/ItemColorCombo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/Storage/ColorProps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/Storage/storageFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/Storage/StorageFileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/TempColorSelection/fadePermissionsWithItemStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ventority/lprefixor/TempColorSelection/fadePermissionsWithItemStack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/ExecuteSetPrefix.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/ExecuteSetPrefix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/LPrefixor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/LPrefixor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/PrefixGUICreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/PrefixGUICreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/PrefixOperations/PrefixOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/PrefixOperations/PrefixOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/PrefixSuffixInvEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/PrefixSuffixInvEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/ServerSettingsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/ServerSettingsHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/Storage/ItemColorCombo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/Storage/storageFileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/Storage/storageFileHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/TempColorSelection/fadePermissionsWithItemStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/ventority/lprefixor/TempColorSelection/fadePermissionsWithItemStack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +15,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Ventority"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Ventority/LPrefixor",
+    "accountId": "68e0eda9-a204-4e24-bd82-1106bc53830e"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -90,7 +80,7 @@
       <workItem from="1729836586402" duration="1283000" />
       <workItem from="1729887855499" duration="1188000" />
       <workItem from="1730215828348" duration="10259000" />
-      <workItem from="1730278704344" duration="17848000" />
+      <workItem from="1730278704344" duration="18956000" />
     </task>
     <task id="LOCAL-00001" summary="Initial #02">
       <option name="closed" value="true" />
@@ -108,7 +98,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730215878599</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Initial #02">
+      <option name="closed" value="true" />
+      <created>1730316890236</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730316890236</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Initial #01">
+      <option name="closed" value="true" />
+      <created>1730316898191</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730316898191</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,7 +125,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -127,6 +145,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial #02" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial #02" />
+    <MESSAGE value="Initial #01" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial #01" />
   </component>
 </project>
