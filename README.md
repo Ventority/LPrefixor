@@ -59,7 +59,7 @@
 The Plugin is based on LuckPerms capabillity to add custom prefixes. It basically just changes the ChatColor the prefix gets assigned.
 To do that,  the command `/prefix` is added which allows you to change the color of the prefix a player has. More on the usage down below. Permissions for each color 
 are created when a new color is added and can be given or taken by admins <italic>(This functionality is currently not working, the fix should be 
-fairly easytho. I will push an updated version soon)</italic> 
+fairly easy tho. I will push an updated version soon). </italic> Keep in mind that Vanilla Minecfaft doesn't show prefixes at all so you will need tomething like TAB thst displays them in the Tab list and the chat. LPrefixor also doesn't sort the groups so you will have to do that within LuckPerm yourself if you want an Admin at the top and a player at the bottom.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -67,9 +67,10 @@ fairly easytho. I will push an updated version soon)</italic>
 <!-- GETTING STARTED -->
 ### Installation
 As every Spigot Plugin
-1. Download the .jar file in the Releases-Tab
-2. Place it inside your Spigot-Server's plugins-folder
-3. Enjoy
+1. Download the newest .jar file in the Releases-Tab
+2. Download LuckPerms
+3. Place both .jar files inside your Spigot-Server's plugins-folder
+4. Enjoy
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
